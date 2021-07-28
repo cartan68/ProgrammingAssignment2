@@ -19,14 +19,14 @@
 ##      A list of functions:
 ##          - get: a function that returns the stored data matrix
 ##          - set: a function that stores the data matrix
-##          - getmean: a function that returns the cached mean of 
+##          - getmean: a function that returns the cached mean of
 ##                  the stored data matrix
 ##          - setmean: a function that stores in cache the mean of
 ##                  the stored data matrix
 
 makeCacheMatrix <- function(x = matrix()) {
     m <- NULL
-    
+
     set <- function(y) {
         x <<- y
         m <<- NULL
@@ -34,7 +34,7 @@ makeCacheMatrix <- function(x = matrix()) {
     get <- function() x
     setinverse <- function(matrixinverse) m <<- matrixinverse
     getinverse <- function() m
-    
+
     list(set = set, get = get, setinverse = setinverse, getinverse = getinverse)
 }
 
@@ -54,7 +54,7 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
     m <- x$getinverse()
-    
+
     # If a cached inverse does not exist, compute it
     if (is.null(m)) {
         message("computing inverse")
