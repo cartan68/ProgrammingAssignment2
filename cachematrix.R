@@ -59,7 +59,7 @@ cacheSolve <- function(x, ...) {
     if (is.null(m)) {
         message("computing inverse")
         data <- x$get()
-        m <- solve(data)
+        m <- solve(data, ...)
         x$setinverse(m)
     }
     return(m)
